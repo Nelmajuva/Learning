@@ -1,133 +1,132 @@
-﻿namespace Learning
+﻿namespace Learning;
+
+class ToDo
 {
-    internal class ToDo
+    private static List<string> ListOfToDos { get; set; } = new List<string>();
+
+    public static void Main(string[] args)
     {
-        private static List<string> ListOfToDos { get; set; } = new List<string>();
+        MenuOptions menuSelected;
 
-        public static void Main(string[] args)
+        do
         {
-            MenuOptions menuSelected;
+            menuSelected = ShowInitialMenu();
 
-            do
-            {
-                menuSelected = ShowInitialMenu();
+            if (menuSelected == MenuOptions.Add) ShowMenuAddToDo();
+            if (menuSelected == MenuOptions.View) ShowMenuViewToDos();
+            if (menuSelected == MenuOptions.Remove) ShowMenuRemoveToDo();
+        } while (menuSelected != MenuOptions.Exit);
+    }
 
-                if (menuSelected == MenuOptions.Add) ShowMenuAddToDo();
-                if (menuSelected == MenuOptions.View) ShowMenuViewToDos();
-                if (menuSelected == MenuOptions.Remove) ShowMenuRemoveToDo();
-            } while (menuSelected != MenuOptions.Exit);
-        } 
+    private static MenuOptions ShowInitialMenu()
+    {
+        Console.WriteLine("Escoge una opción para poder continuar:");
+        Console.WriteLine("1. Nueva tarea");
+        Console.WriteLine("2. Remover tarea");
+        Console.WriteLine("3. Tareas pendientes");
+        Console.WriteLine("4. Salir");
 
-        private static MenuOptions ShowInitialMenu()
+        string? optionSelected = Console.ReadLine();
+
+        if (optionSelected == null) return MenuOptions.Exit;
+        return (MenuOptions)Enum.Parse(typeof(MenuOptions), optionSelected);
+    }
+
+    public static void ShowMenuAddToDo()
+    {
+        try
         {
-            Console.WriteLine("Escoge una opción para poder continuar:");
-            Console.WriteLine("1. Nueva tarea");
-            Console.WriteLine("2. Remover tarea");
-            Console.WriteLine("3. Tareas pendientes");
-            Console.WriteLine("4. Salir");
+            Console.WriteLine("Ingrese el nombre de la tarea:");
+            string? task = Console.ReadLine();
 
-            string? optionSelected = Console.ReadLine();
+            if (task == null) throw new Exception("La tarea no puede ser un campo NULL.");
 
-            if (optionSelected == null) return MenuOptions.Exit;
-            return (MenuOptions) Enum.Parse(typeof(MenuOptions), optionSelected);
+            ListOfToDos.Add(task);
+            Console.WriteLine("¡Tarea registrada!");
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine("¡Error con el registro de la tarea!");
+            Console.WriteLine(exception.Message);
+        }
+    }
+
+    public static void ShowMenuRemoveToDo()
+    {
+        try
+        {
+            if (CheckIfListOfTodosIsEmpty()) return;
+
+            Console.WriteLine("Ingrese el número de la tarea a remover:");
+
+            ShowListToDos();
+
+            int optionToDoSelected = Convert.ToInt32(Console.ReadLine()) - 1;
+
+            if (optionToDoSelected < -1 || optionToDoSelected >= ListOfToDos.Count || ListOfToDos.Count < 0) return;
+
+            string toDo = ListOfToDos[optionToDoSelected];
+            ListOfToDos.RemoveAt(optionToDoSelected);
+
+            Console.WriteLine("¡Tarea \"" + toDo + "\" eliminada!");
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine("¡Error con la eliminación de la tarea!");
+            Console.WriteLine(exception.Message);
+        }
+    }
+
+    public static void ShowMenuViewToDos()
+    {
+        try
+        {
+            if (!CheckIfListOfTodosIsEmpty()) ShowListToDos();
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine("¡Se generó una excepción al momento de visualizar el listado de tareas!");
+            Console.WriteLine(exception.Message);
+        }
+    }
+
+    private static bool CheckIfListOfTodosIsEmpty()
+    {
+        bool isEmpty;
+
+        if (ListOfToDos?.Count > 0)
+        {
+            isEmpty = false;
+        }
+        else
+        {
+            isEmpty = true;
+            Console.WriteLine("No hay tareas disponibles para visualizar.");
         }
 
-        public static void ShowMenuAddToDo()
+        return isEmpty;
+    }
+
+    private static void ShowListToDos()
+    {
+        int positionToDo = 1;
+
+        Console.WriteLine("----------------------------------------");
+
+        ListOfToDos.ForEach((toDo) =>
         {
-            try
-            {
-                Console.WriteLine("Ingrese el nombre de la tarea:");
-                string? task = Console.ReadLine();
+            Console.WriteLine($"{positionToDo}. {toDo}");
+            positionToDo++;
+        });
 
-                if (task == null) throw new Exception("La tarea no puede ser un campo NULL.");
+        Console.WriteLine("----------------------------------------");
+    }
 
-                ListOfToDos.Add(task);
-                Console.WriteLine("¡Tarea registrada!");
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine("¡Error con el registro de la tarea!");
-                Console.WriteLine(exception.Message);
-            }
-        }
-
-        public static void ShowMenuRemoveToDo()
-        {
-            try
-            {
-                if (CheckIfListOfTodosIsEmpty()) return;
-
-                Console.WriteLine("Ingrese el número de la tarea a remover:");
-
-                ShowListToDos();
-
-                int optionToDoSelected = Convert.ToInt32(Console.ReadLine()) - 1;
-
-                if (optionToDoSelected < -1 || optionToDoSelected >= ListOfToDos.Count || ListOfToDos.Count < 0) return;
-
-                string toDo = ListOfToDos[optionToDoSelected];
-                ListOfToDos.RemoveAt(optionToDoSelected);
-
-                Console.WriteLine("¡Tarea \"" + toDo + "\" eliminada!");
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine("¡Error con la eliminación de la tarea!");
-                Console.WriteLine(exception.Message);
-            }
-        }
-
-        public static void ShowMenuViewToDos()
-        {
-            try
-            {
-                if (!CheckIfListOfTodosIsEmpty()) ShowListToDos();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine("¡Se generó una excepción al momento de visualizar el listado de tareas!");
-                Console.WriteLine(exception.Message);
-            }
-        }
-
-        private static bool CheckIfListOfTodosIsEmpty()
-        {
-            bool isEmpty;
-
-            if (ListOfToDos?.Count > 0)
-            {
-                isEmpty = false;
-            }
-            else
-            {
-                isEmpty = true;
-                Console.WriteLine("No hay tareas disponibles para visualizar.");
-            }
-
-            return isEmpty;
-        }
-
-        private static void ShowListToDos()
-        {
-            int positionToDo = 1;
-
-            Console.WriteLine("----------------------------------------");
-
-            ListOfToDos.ForEach((toDo) =>
-            {
-                Console.WriteLine($"{positionToDo}. {toDo}");
-                positionToDo++;
-            });
-
-            Console.WriteLine("----------------------------------------");
-        }
-
-        public enum MenuOptions
-        {
-            Add = 1,
-            Remove = 2,
-            View = 3,
-            Exit = 4,
-        }
+    public enum MenuOptions
+    {
+        Add = 1,
+        Remove = 2,
+        View = 3,
+        Exit = 4,
     }
 }
