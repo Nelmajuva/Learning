@@ -18,6 +18,11 @@ class ToDo
         } while (menuSelected != MenuOptions.Exit);
     }
 
+    /// <summary>
+    /// Imprime el menú principal, mostrando las diferentes opciones
+    /// disponibles para su selección.
+    /// </summary>
+    /// <returns>MenuOptions - Opción del menú que fue seleccionada.</returns>
     private static MenuOptions ShowInitialMenu()
     {
         Console.WriteLine("Escoge una opción para poder continuar:");
@@ -32,6 +37,10 @@ class ToDo
         return (MenuOptions)Enum.Parse(typeof(MenuOptions), optionSelected);
     }
 
+    /// <summary>
+    /// Imprime la lógica necesaria para agregar una nueva tarea
+    /// en los ToDos List.
+    /// </summary>
     public static void ShowMenuAddToDo()
     {
         try
@@ -51,6 +60,11 @@ class ToDo
         }
     }
 
+    /// <summary>
+    /// Imprime la lógica necesaria para remover una tarea
+    /// del ToDos List.
+    /// </summary>
+    /// <exception cref="ArgumentOutOfRangeException">La opción seleccionada no es válida.</exception>
     public static void ShowMenuRemoveToDo()
     {
         try
@@ -63,7 +77,7 @@ class ToDo
 
             int optionToDoSelected = Convert.ToInt32(Console.ReadLine()) - 1;
 
-            if (optionToDoSelected < -1 || optionToDoSelected >= ListOfToDos.Count || ListOfToDos.Count < 0) return;
+            if (optionToDoSelected < -1 || optionToDoSelected >= ListOfToDos.Count || ListOfToDos.Count < 0) throw new ArgumentOutOfRangeException("optionToDoSelected", "¡La opción seleccionada no es váida!");
 
             string toDo = ListOfToDos[optionToDoSelected];
             ListOfToDos.RemoveAt(optionToDoSelected);
@@ -77,6 +91,9 @@ class ToDo
         }
     }
 
+    /// <summary>
+    /// Visualiza el ToDos List pendiente por ser completado.
+    /// </summary>
     public static void ShowMenuViewToDos()
     {
         try
@@ -90,6 +107,11 @@ class ToDo
         }
     }
 
+    /// <summary>
+    /// Lógica encargada de verificar que el ToDos List
+    /// no se encuentre vacío.
+    /// </summary>
+    /// <returns>bool - ¿Se encuentra vacío el arreglo?</returns>
     private static bool CheckIfListOfTodosIsEmpty()
     {
         bool isEmpty;
@@ -107,6 +129,9 @@ class ToDo
         return isEmpty;
     }
 
+    /// <summary>
+    /// Lógica encargada de mostrar el ToDos List.
+    /// </summary>
     private static void ShowListToDos()
     {
         int positionToDo = 1;
