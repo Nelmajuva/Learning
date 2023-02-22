@@ -94,14 +94,14 @@
         {
             bool isEmpty;
 
-            if (ListOfToDos.Count == 0)
+            if (ListOfToDos?.Count > 0)
             {
-                isEmpty = true;
-                Console.WriteLine("No hay tareas disponibles para visualizar.");
+                isEmpty = false;
             }
             else
             {
-                isEmpty = false;
+                isEmpty = true;
+                Console.WriteLine("No hay tareas disponibles para visualizar.");
             }
 
             return isEmpty;
