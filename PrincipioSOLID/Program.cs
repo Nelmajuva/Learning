@@ -2,7 +2,7 @@
 
 class PrincipioSOLID
 {
-    public void Main(string[] args)
+    public static void Main(string[] args)
     {
         //Single Child Responsability
         //ExportHelper exportHelper = new();
@@ -12,38 +12,24 @@ class PrincipioSOLID
         //exportHelper.ExportStudents(listOfStudents);
 
         //Console.WriteLine("¡Datos de los estudiantes exportados!");
+
+        // -------------------------------------------------------------------------
+
+        //Open Closed Principle
+        List<Employee> listOfEmployees = new()
+        {
+            new EmployeeFullTime("Juan Camilo", 200),
+            new EmployeePartialTime("Andrea Puerta", 120)
+        };
+
+        ShowSalaryMonthlyEmployees(listOfEmployees);
     }
 
-    private void CalculateSalaryMonthlyEmployees(List<object> listOfEmployees)
+    private static void ShowSalaryMonthlyEmployees(List<Employee> listOfEmployees)
     {
         listOfEmployees.ForEach((employee) =>
         {
-            decimal salary;
-            decimal hourValue;
-
-            if (employee is EmployeeFullTime)
-            {
-                hourValue = 300000M;
-                EmployeeFullTime employeeFullTime = (EmployeeFullTime)employee;
-                salary = hourValue * employeeFullTime.HoursWorked;
-
-                Console.WriteLine($"Empleado {employeeFullTime.FullName}, gana en tiempo completo un total de {salary}");
-
-                return;
-            }
-
-            hourValue = 20000M;
-            EmployeePartialTime employeePartialTime = (EmployeePartialTime)employee;
-            salary = hourValue * employeePartialTime.HoursWorked;
-
-            if (employeePartialTime.HoursWorked > 160)
-            {
-                decimal effortCompensation = 500M;
-                int extraDays = employeePartialTime.HoursWorked - 160;
-                salary += effortCompensation * extraDays;
-            }
-
-            Console.WriteLine($"Empleado {employeePartialTime.FullName}, gana en medio tiempo un total de {salary}");
+            Console.WriteLine($"Empleado {employee.FullName}, gana un total de {employee.CalculateSalaryMonthly()}");
         });
     }
 }

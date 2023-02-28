@@ -1,11 +1,16 @@
-﻿class EmployeeFullTime
+﻿class EmployeeFullTime : Employee
 {
-    public string FullName { get; set; }
-    public int HoursWorked { get; set; }
-
-    public EmployeeFullTime(string fullName, int hoursWorked)
+    public EmployeeFullTime(string fullName, int hoursWorked) : base(fullName, hoursWorked)
     {
         this.FullName = fullName;
         this.HoursWorked = hoursWorked;
+    }
+
+    public override decimal CalculateSalaryMonthly()
+    {
+        decimal hourValue = 300000M;
+        decimal salary = hourValue * this.HoursWorked;
+
+        return salary;
     }
 }

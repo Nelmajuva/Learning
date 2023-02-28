@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using PrincipioSOLID.SingleResponsability;
+using System.Text;
 
 public class ExportHelper
 {
