@@ -27,9 +27,9 @@ y eliminar las tareas.
 > El principio KISS (Keep It Simple, Stupid) es un principio de diseño de software que enfatiza la importancia de mantener las cosas simples y fáciles de entender. Según el principio KISS, las soluciones simples suelen ser mejores que las complejas y que, por lo tanto, los desarrolladores deben buscar la simplicidad en el diseño de sus sistemas de software. El principio KISS puede ayudar a los desarrolladores a evitar la sobrecarga de funcionalidades y características innecesarias en el software. Al mantener las cosas simples, los desarrolladores pueden reducir la complejidad del software y facilitar su comprensión y mantenimiento. Esto puede conducir a sistemas más fáciles de usar, más confiables y con menos errores. Sin embargo, el principio KISS no significa que el software deba ser simplista o que deba faltar funcionalidad. En lugar de eso, se trata de encontrar el equilibrio adecuado entre la simplicidad y la funcionalidad. Los desarrolladores deben esforzarse por encontrar soluciones simples y elegantes que satisfagan las necesidades de los usuarios y del negocio. En resumen, el principio KISS es una buena práctica de diseño de software que enfatiza la importancia de mantener las cosas simples y fáciles de entender. Al seguir este principio, los desarrolladores pueden mejorar la calidad del software, reducir la complejidad y facilitar su comprensión y mantenimiento.
 
 
-## Proyecto PrincipioSOLID
+## Proyecto Principio SOLID
 
-Un poryecto de consola realizado con la finalidad de poner en práctica los principios SOLID
+Un proyecto de consola realizado con la finalidad de poner en práctica los principios SOLID
 en varios casos de uso. En este archivo se podrá encontrar de manera bien documentada cada una de las partes que conforma la palabra SOLID y un caso de uso.
 
 ### Temas vistos en el proyecto SOLID.
@@ -68,3 +68,13 @@ D <strong>Dependency version - DIP</strong> (Inversión de dependencias)
 ¿Qué es DIP?
 
 > Este principio establece que los módulos de alto nivel no deben depender de módulos de bajo nivel, sino que ambos deben depender de abstracciones. Además, las abstracciones no deben depender de detalles, sino que los detalles deben depender de las abstracciones. En resumen, este principio sugiere que la dependencia debe establecerse en términos de abstracciones y no en términos de detalles concretos.
+
+## Proyecto Conociendo LinQ
+
+LINQ (Language-Integrated Query) en C# es una característica que permite realizar consultas de datos de una manera declarativa y orientada a objetos. LINQ es una tecnología que proporciona un conjunto de extensiones de lenguaje que permiten realizar consultas sobre datos de diferentes orígenes, como bases de datos, colecciones de objetos, servicios web, archivos XML y otros.
+
+Con LINQ, se pueden escribir consultas expresivas y eficientes que permiten filtrar, ordenar, agrupar y proyectar datos. LINQ utiliza una sintaxis similar a SQL, lo que hace que sea fácil de aprender y de utilizar para aquellos que ya están familiarizados con SQL.
+
+LINQ proporciona una gran cantidad de operadores y métodos que permiten realizar operaciones complejas en los datos de forma sencilla. Además, LINQ también permite la composición de consultas, lo que significa que se pueden combinar varias consultas para obtener los datos que se desean.
+
+En resumen, LINQ es una característica de C# que permite escribir consultas expresivas y orientadas a objetos sobre diferentes orígenes de datos. Es una herramienta poderosa para manipular y obtener datos de manera eficiente y efectiva.
