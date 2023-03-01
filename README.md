@@ -78,3 +78,15 @@ Con LINQ, se pueden escribir consultas expresivas y eficientes que permiten filt
 LINQ proporciona una gran cantidad de operadores y métodos que permiten realizar operaciones complejas en los datos de forma sencilla. Además, LINQ también permite la composición de consultas, lo que significa que se pueden combinar varias consultas para obtener los datos que se desean.
 
 En resumen, LINQ es una característica de C# que permite escribir consultas expresivas y orientadas a objetos sobre diferentes orígenes de datos. Es una herramienta poderosa para manipular y obtener datos de manera eficiente y efectiva.
+
+### Temas vistos en el proyecto Conociendo LinQ.
+
+#### Agregar un archivo JSON para ser consumido internamente en c#.
+
+Para esto es necesario en la configuración del archivo .csproj, agregar el siguiente código.
+
+```
+<ItemGroup>
+	<Content Include="file.json" />
+</ItemGroup>
+```
