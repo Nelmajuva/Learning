@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo", "ToDo\ToDo.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrincipioSOLID", "PrincipioSOLID\PrincipioSOLID.csproj", "{22895E18-98BB-4F77-83CD-1008D0843BBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConociendoLinq", "ConociendoLinq\ConociendoLinq.csproj", "{A71F1C49-0BC5-4A00-A7A7-57AD67E88176}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprendiendoLinQ", "AprendiendoLinQ\AprendiendoLinQ.csproj", "{EA6A721C-BEE0-4741-9EB6-450F46338D40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{22895E18-98BB-4F77-83CD-1008D0843BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22895E18-98BB-4F77-83CD-1008D0843BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22895E18-98BB-4F77-83CD-1008D0843BBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A71F1C49-0BC5-4A00-A7A7-57AD67E88176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A71F1C49-0BC5-4A00-A7A7-57AD67E88176}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A71F1C49-0BC5-4A00-A7A7-57AD67E88176}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A71F1C49-0BC5-4A00-A7A7-57AD67E88176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
